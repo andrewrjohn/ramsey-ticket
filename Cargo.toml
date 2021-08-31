@@ -8,3 +8,4 @@ edition = "2018"
 [dependencies]
 open = "2.0.1"
 git2 = "0.13.21"
+regex = "1.5.4"
