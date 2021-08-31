@@ -26,10 +26,39 @@ fn main() {
     };
 
 
-   let rev_parse = match repo.revparse_single("HEAD") {
-       Ok(rp) => println!("{:#?}", rp),
-       Err(err) => println!("Error: {}", err)
+   let rev_parse = match repo.revparse_ext("HEAD") {
+       Ok(rp) => rp,
+       Err(err) => panic!("Error: {}", err)
    };
+
+   let head = match repo.head() {
+       Ok(h) => h,
+       Err(e) => panic!("Error: {}", e)
+   };
+
+   println!("{:?}", head.name());
+
+
+//    match rev_parse.name() {
+//        Some(n) => println!("{}", n),
+//        None() => println!(""),
+//    }
+//    println!("{:#?}", Some(rev_parse.name()));
+
+//    let commit = match repo.find_commit(rev_parse.id()) {
+//        Ok(c) => c,
+//        Err(err) => panic!("Error: {}", err)
+//    };
+
+//    let tree = match commit.tree() {
+//        Ok(t) => t,
+//        Err(e) => panic!("Error: {}", e)
+//    };
+
+
+//    println!("{:#?}", tree);
+
+//    println!("{:#?}", Some(commit.message()));
 
 
 
