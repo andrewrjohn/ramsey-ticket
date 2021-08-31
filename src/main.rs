@@ -1,4 +1,4 @@
-use::git2::{Repository};
+use::git2::Repository;
 use std::env;
 use regex::Regex;
 use open;
@@ -30,7 +30,11 @@ fn main() {
 
    let branch_name = re.replace(head_name, "");
 
-   println!("{}", branch_name);
+   let re = Regex::new("(^[A-Z]*-[0-9]*)").unwrap();
+   
+   let ticket = re.captures(&branch_name).unwrap().get(0).unwrap().as_str();
 
-   open::that(BASE_URL).unwrap();
+//    println!("{}{}", BASE_URL, ticket);
+
+   open::that(format!("{}{}", BASE_URL, ticket)).unwrap();
 }
