@@ -6,7 +6,7 @@ echo ""
 
 mkdir ~/.RamseyTicket
 
-curl "https://raw.githubusercontent.com/andrewrjohn/ramsey-ticket/master/target/release/ramsey-ticket" >> ~/.RamseyTicket
+curl "https://github.com/andrewrjohn/ramsey-ticket/releases/download/v1.0/ramsey-ticket" >> ~/.RamseyTicket
 
 echo ""
 echo "Finished!"
